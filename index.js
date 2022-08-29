@@ -1,3 +1,6 @@
+import difficulties from './data/difficulties';
+import { brownCards, blueCards, greenCards } from '../data/mythicCards/index.js';
+
 const ancientsData = [
     {
       id: 'cthulhu',
@@ -116,3 +119,38 @@ difficultyContainer.addEventListener('click', (e) => {
         target.classList.add('active');
     }
 })
+
+const AllCard = [...greenCards, ...brownCards, ...blueCards]
+
+// перемешать колоду
+function generateCard(arg) {
+   const сardNormal = [];
+
+   const greenNormal = [];
+   const brownNormal = [];
+   const blueNormal = [];
+
+   for (let i = 0; i < AllCard.length; i++) {
+      if (AllCard[i].difficulty === 'normal') {
+         сardNormal.push(AllCard[i]);
+      }
+   }
+
+   console.log(сardNormal)
+
+   for (let i = 0; i < сardNormal.length; i++) {
+      if (сardNormal[i].color === 'green') {
+         greenNormal.push(сardNormal[i]);
+
+      } else if (сardNormal[i].color === 'brown') {
+         brownNormal.push(сardNormal[i]);
+      } else if (сardNormal[i].color === 'blue') {
+         blueNormal.push(сardNormal[i]);
+
+      }
+   }
+
+   console.log(greenNormal)
+   console.log(brownNormal)
+   console.log(blueNormal)
+}
